@@ -1,3 +1,36 @@
-<p>
-  currency-converter works!
-</p>
+<div class="container">
+  <form [formGroup]="converterForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        Enter amount here:
+        <input class="form-control" formControlName="txtAmount" [options]="currencyMaskOptions" required currencyMask>
+      </div>
+
+      <div class="col">
+        From:
+        <select class="form-control" formControlName="selectFrom" required>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+
+      <div class="col">
+        To:
+        <select class="form-control" formControlName="selectTo" required>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <button type="submit" [disabled]="!converterForm.valid"
+          class="form-control btn btn-primary convert-currency-button">Convert</button>
+      </div>
+    </div>
+  </form>
+
+</div>

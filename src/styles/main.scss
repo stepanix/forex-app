@@ -1,0 +1,13 @@
+@import "./partials/abstracts/variables";
+
+
+body {
+    font-size: 1.2em;
+    color: $default-text-color;
+    font-family: $font-family;
+    background: $body-background-color;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    overflow-x: hidden;
+  }
+
