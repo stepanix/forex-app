@@ -17,6 +17,9 @@ export class CurrencyConverterComponent implements OnInit {
   fromCurrencyList: CurrencyModel[] = [];
   toCurrencyList: CurrencyModel[] = [];
 
+  conversionRate$ = this.currencyConverterFacade.getConversionRate$();
+  conversionRateError$ = this.currencyConverterFacade.getConversionRateError$();
+
   currencyList: CurrencyModel[] = [
     { code: 'USD', name: 'US Dollar' },
     { code: 'GBP', name: 'British Pound' },
@@ -47,7 +50,7 @@ export class CurrencyConverterComponent implements OnInit {
       from: fromCurrencyCode,
       to: toCurrencyCode
     }
-    this.currencyConverterFacade.getConversionRate(payload);
+    this.currencyConverterFacade.computeConversionRate(payload);
   }
 
 }

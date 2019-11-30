@@ -10,7 +10,6 @@ const getCurrencyConverterState = createFeatureSelector<CurrencyConverterState>(
     'currencyConverter'
 );
 
-
 // Query function to extract exchangeRate slice from repository
 const getConversionRate = createSelector(
     getCurrencyConverterState,
@@ -25,7 +24,6 @@ const getError = createSelector(
 
 // Query function to extract error from repository
 const getConversionRateError = createSelector(getError, (state: CurrencyConverterState) => state.error);
-
 
 // Wrap query function(s) in json object and export to be open for consumption
 export const conversionRateQuery = {

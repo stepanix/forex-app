@@ -20,7 +20,7 @@ import { CurrencyConverterFacade } from './facades/currency-converter.facade';
     BrowserModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
-    StoreModule.forFeature('currencyConverterReducer', currencyConverterReducer),
+    StoreModule.forFeature('currencyConverter', currencyConverterReducer),
     EffectsModule.forFeature([CurrencyConverterEffects])
   ],
   providers: [CurrencyConverterApiService, CurrencyConverterFacade]

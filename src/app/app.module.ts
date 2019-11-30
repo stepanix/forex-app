@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     CurrencyConverterModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({}),    
     EffectsModule.forRoot([])
   ],
   providers: [],

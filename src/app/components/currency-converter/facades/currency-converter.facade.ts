@@ -9,15 +9,23 @@ import { GetCurrencyConversionRate } from 'src/app/core/redux/actions/currency-c
 @Injectable()
 export class CurrencyConverterFacade {
 
-    conversionRate$ = this.store.select(conversionRateQuery.getConversionRate);
-    conversionRateError$ = this.store.select(conversionRateQuery.getConversionRateError);
+    private _conversionRate$ = this.store.select(conversionRateQuery.getConversionRate);
+    private _conversionRateError$ = this.store.select(conversionRateQuery.getConversionRateError);
 
     constructor(private store: Store<CurrencyConverterState>) {
 
     }
 
-    getConversionRate(payload: ConversionRequestPayload) {
+    computeConversionRate(payload: ConversionRequestPayload) {
         this.store.dispatch(new GetCurrencyConversionRate(payload));
+    }
+
+    getConversionRate$() {
+        return this._conversionRate$;
+    }
+
+    getConversionRateError$() {
+        return this._conversionRateError$;
     }
 
 }
