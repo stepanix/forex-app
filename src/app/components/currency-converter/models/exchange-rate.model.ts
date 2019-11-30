@@ -14,7 +14,7 @@ export class ExchangeRate {
         private toCurrencyCode: string, private toCurrencyName: string,
         private exchangeRate: string, private lastRefreshed: string,
         private timeZone: string, private bidPrice: string, private askPrice: string) {
-        
+
         this._fromCurrencyCode = this.fromCurrencyCode;
         this._fromCurrencyName = this.fromCurrencyName;
         this._toCurrencyCode = this.toCurrencyCode;

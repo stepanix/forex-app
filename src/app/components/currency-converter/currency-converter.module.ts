@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { NgxCurrencyModule } from "ngx-currency";
 
 import { CurrencyConverterComponent } from './views/currency-converter.component';
+import { CurrencyConverterApiService } from './services/apis/currency-converter.api.service';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { CurrencyConverterComponent } from './views/currency-converter.component
     ReactiveFormsModule,
     NgxCurrencyModule
   ],
-  providers: []
+  providers: [CurrencyConverterApiService]
 })
 export class CurrencyConverterModule { }
