@@ -3,5 +3,5 @@ import { ExchangeRateModel } from 'src/app/components/currency-converter/models/
 export interface CurrencyConverterState {
     conversionRate: ExchangeRateModel;
     error: any;
-    isLoaded: boolean
+    isLoading: boolean
   }

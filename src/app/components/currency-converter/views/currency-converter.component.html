@@ -1,4 +1,5 @@
 <div class="container">
+
   <form [formGroup]="converterForm">
     <div class="row">
       <div class="col">
@@ -27,8 +28,16 @@
     </div>
   </form>
 
-  <div>
-    {{(conversionRate$ | async)?.exchangeRate}}
-  </div>
+  <!-- <ng-container *ngIf="(conversionRate$ | async)?.exchangeRate; then result else loadingOrError"></ng-container> -->
+
+  <!-- <ng-template #result>
+    <div>
+      {{(conversionRate$ | async)?.exchangeRate}}
+    </div>
+  </ng-template> -->
+
+<!--ng-container directive is used here to conditionally render the screens -->
+
+
 
 </div>

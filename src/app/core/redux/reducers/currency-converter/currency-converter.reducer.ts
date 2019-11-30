@@ -6,7 +6,7 @@ import { ExchangeRateModel } from 'src/app/components/currency-converter/models/
 export const initialState: CurrencyConverterState = {
     conversionRate: <ExchangeRateModel> {},
     error: {},
-    isLoaded: false
+    isLoading: true
 };
 
 // currencyConverterReducer function with action switch conditions to create a new copy of CurrencyConversionState
@@ -15,19 +15,22 @@ export function currencyConverterReducer(state = initialState, action: Actions):
         case ActionTypes.GET_CURRENCY_CONVERSION_RATE_SUCCESS: {
             return {
                 ...state,
-                isLoaded: true,
+                isLoading: false,
                 conversionRate: mapConversionRateResponseModel(action.payload)
             };
         }
         case ActionTypes.GET_CURRENCY_CONVERSION_RATE_ERROR: {
             return {
                 ...state,
-                isLoaded: true,
+                isLoading: false,
                 error: action.payload
             };
         }
         default: {
-            return state;
+            return {
+                ...state,
+                isLoading: true
+            };
         }
     }
 }
