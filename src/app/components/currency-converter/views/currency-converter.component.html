@@ -21,7 +21,7 @@
       </div>
 
       <div class="col">
-        <button type="button" [disabled]="!converterForm.valid"
+        <button type="button" (click)="compute()" [disabled]="!converterForm.valid"
           class="form-control btn btn-primary convert-currency-button">Convert</button>
       </div>
     </div>

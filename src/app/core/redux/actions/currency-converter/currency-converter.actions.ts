@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { ConversionRequestPayload } from 'src/app/components/currency-converter/models/conversion-request-payload';
 
 export enum ActionTypes {
     GET_CURRENCY_CONVERSION_RATE = '[CurrencyConverter] Get',
@@ -8,7 +9,7 @@ export enum ActionTypes {
 
 export class GetCurrencyConversionRate implements Action {
     readonly type = ActionTypes.GET_CURRENCY_CONVERSION_RATE;
-    constructor() { }
+    constructor(public payload: ConversionRequestPayload) { }
 }
 
 export class GetCurrencyConversionRateSuccess implements Action {

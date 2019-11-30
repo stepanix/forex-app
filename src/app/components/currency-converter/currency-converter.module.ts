@@ -5,6 +5,11 @@ import { NgxCurrencyModule } from "ngx-currency";
 
 import { CurrencyConverterComponent } from './views/currency-converter.component';
 import { CurrencyConverterApiService } from './services/apis/currency-converter.api.service';
+import { EffectsModule } from '@ngrx/effects';
+import { CurrencyConverterEffects } from 'src/app/core/redux/effects/currency-converter/currency-converter.effects';
+import { StoreModule } from '@ngrx/store';
+import { currencyConverterReducer } from 'src/app/core/redux/reducers/currency-converter/currency-converter.reducer';
+import { CurrencyConverterFacade } from './facades/currency-converter.facade';
 
 
 @NgModule({
@@ -14,8 +19,10 @@ import { CurrencyConverterApiService } from './services/apis/currency-converter.
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    StoreModule.forFeature('currencyConverterReducer', currencyConverterReducer),
+    EffectsModule.forFeature([CurrencyConverterEffects])
   ],
-  providers: [CurrencyConverterApiService]
+  providers: [CurrencyConverterApiService, CurrencyConverterFacade]
 })
 export class CurrencyConverterModule { }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { amountValidator } from 'src/app/shared/validators/number-validator';
 import { CurrencyModel } from '../models/currency.model';
-import { CurrencyConverterApiService } from '../services/apis/currency-converter.api.service';
+import { CurrencyConverterFacade } from '../facades/currency-converter.facade';
+import { ConversionRequestPayload } from '../models/conversion-request-payload';
 
 @Component({
   selector: 'app-currency-converter',
@@ -29,7 +30,7 @@ export class CurrencyConverterComponent implements OnInit {
     decimal: '.'
   };
 
-  constructor(private fb: FormBuilder, currencyConverterApiService: CurrencyConverterApiService) {
+  constructor(private fb: FormBuilder, private currencyConverterFacade: CurrencyConverterFacade) {
     this.converterForm = this.fb.group({
       txtAmount: [0.00, amountValidator],
       selectFrom: ['', Validators.required],
@@ -37,8 +38,16 @@ export class CurrencyConverterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit() { }
 
+  compute() {
+    const fromCurrencyCode = this.converterForm.controls['selectFrom'].value;
+    const toCurrencyCode = this.converterForm.controls['selectTo'].value;
+    const payload: ConversionRequestPayload = {
+      from: fromCurrencyCode,
+      to: toCurrencyCode
+    }
+    this.currencyConverterFacade.getConversionRate(payload);
   }
 
 }

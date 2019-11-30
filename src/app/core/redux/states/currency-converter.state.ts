@@ -1,5 +1,6 @@
+import { ExchangeRateModel } from 'src/app/components/currency-converter/models/exchange-rate.model';
 
 export interface CurrencyConverterState {
-    exchangeRate: any;
+    conversionRate: ExchangeRateModel;
     error: any;
   }

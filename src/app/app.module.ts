@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrencyConverterModule } from './components/currency-converter/currency-converter.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import { CurrencyConverterModule } from './components/currency-converter/currenc
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CurrencyConverterModule
+    HttpClientModule,
+    CurrencyConverterModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
