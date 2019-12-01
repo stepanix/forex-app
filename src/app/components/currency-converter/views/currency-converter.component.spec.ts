@@ -18,9 +18,7 @@ describe('CurrencyConverterComponent', () => {
   let component: CurrencyConverterComponent;
   let fixture: ComponentFixture<CurrencyConverterComponent>;
 
-  // create new instance of FormBuilder
   const formBuilder: FormBuilder = new FormBuilder();
-
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
