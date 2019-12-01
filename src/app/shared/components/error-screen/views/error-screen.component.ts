@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-error-screen',
@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ErrorScreenComponent implements OnInit {
 
   @Output() retryClicked = new EventEmitter();
+  @Input() errorMessage: string = 'oops an error occurred, please refresh to try again;';
 
   constructor() { }
 

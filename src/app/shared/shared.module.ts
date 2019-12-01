@@ -4,7 +4,7 @@ import { LoadingIndicatorComponent } from './components/loading-indicator/views/
 import { ErrorScreenComponent } from './components/error-screen/views/error-screen.component';
 
 @NgModule({
-  declarations: [LoadingIndicatorComponent],
+  declarations: [LoadingIndicatorComponent, ErrorScreenComponent],
   exports: [LoadingIndicatorComponent, ErrorScreenComponent],
   imports: [
     CommonModule

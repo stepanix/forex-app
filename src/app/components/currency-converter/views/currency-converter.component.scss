@@ -1,5 +1,12 @@
 .convert-currency-button {
     margin-top: 28px;
     width: 50%;
-    font-weight: 500;
+}
+
+/* responsive queries */
+// Small devices (landscape phones, 576px and down)
+@media (max-width: 576px) { 
+    .convert-currency-button {
+        width: 100%;
+    }
 }
