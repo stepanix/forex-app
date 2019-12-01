@@ -27,7 +27,16 @@ describe('currencyConverterReducer', () => {
         isLoading: false
     };
 
-    it('should reflect state when get exchange rate is called', () => {
+    it('should reflect state(initial state) when reset action type is ResetCurrencyConversionRate', () => {
+        expect(
+            fromCurrencyConverterReducer.currencyConverterReducer(
+                fromCurrencyConverterReducer.initialState,
+                new fxActions.ResetCurrencyConversionRate()
+            ).conversionRate.exchangeRate
+        ).toBeUndefined();
+    });
+
+    it('should reflect state when get exchange rate action type is GetCurrencyConversionRate', () => {
         expect(
             fromCurrencyConverterReducer.currencyConverterReducer(
                 fromCurrencyConverterReducer.initialState,
@@ -36,7 +45,7 @@ describe('currencyConverterReducer', () => {
         ).toEqual(expected.isLoading);
     });
 
-    it('should reflect state when get exchange rate is successful', () => {
+    it('should reflect state when get exchange rate action type is GetCurrencyConversionRateSuccess', () => {
         expect(
             fromCurrencyConverterReducer.currencyConverterReducer(
                 fromCurrencyConverterReducer.initialState,
@@ -45,7 +54,7 @@ describe('currencyConverterReducer', () => {
         ).toEqual(expectedSuccess.conversionRate.exchangeRate);
     });
 
-    it('should reflect state when error is encountered', () => {
+    it('should reflect state when action type is GetCurrencyConversionRateError', () => {
         expect(
             fromCurrencyConverterReducer.currencyConverterReducer(
                 fromCurrencyConverterReducer.initialState,

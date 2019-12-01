@@ -63,5 +63,11 @@ describe('CurrencyConverterComponent', () => {
     expect(component.compute).toHaveBeenCalled();
   });
 
+  it('should call reset method', () => {
+    spyOn(component, 'reset').and.callThrough();
+    component.reset();
+    expect(component.reset).toHaveBeenCalled();
+  });
+
 
 });

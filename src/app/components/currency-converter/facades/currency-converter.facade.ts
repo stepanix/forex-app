@@ -3,7 +3,7 @@ import { CurrencyConverterState } from 'src/app/core/redux/states/currency-conve
 import { Store } from '@ngrx/store';
 import { conversionRateQuery } from 'src/app/core/redux/selectors/currency-converter/currency-converter.selector';
 import { ConversionRequestPayload } from '../models/conversion-request-payload';
-import { GetCurrencyConversionRate } from 'src/app/core/redux/actions/currency-converter/currency-converter.actions';
+import { GetCurrencyConversionRate, ResetCurrencyConversionRate } from 'src/app/core/redux/actions/currency-converter/currency-converter.actions';
 
 
 @Injectable()
@@ -14,6 +14,10 @@ export class CurrencyConverterFacade {
     private _isLoading$ = this.store.select(conversionRateQuery.getIsLoading);
 
     constructor(private store: Store<CurrencyConverterState>) { }
+
+    resetComputedResult() {
+        this.store.dispatch(new ResetCurrencyConversionRate());
+    }
 
     computeConversionRate(payload: ConversionRequestPayload) {
         this.store.dispatch(new GetCurrencyConversionRate(payload));
@@ -30,5 +34,6 @@ export class CurrencyConverterFacade {
     isLoading$() {
         return this._isLoading$;
     }
+    
 
 }

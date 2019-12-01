@@ -5,7 +5,13 @@ import { ExchangeRateModel } from 'src/app/components/currency-converter/models/
 export enum ActionTypes {
     GET_CURRENCY_CONVERSION_RATE = '[CurrencyConverter] Get',
     GET_CURRENCY_CONVERSION_RATE_SUCCESS = '[CurrencyConverter] Get Success',
-    GET_CURRENCY_CONVERSION_RATE_ERROR = '[CurrencyConverter] Get Error'
+    GET_CURRENCY_CONVERSION_RATE_ERROR = '[CurrencyConverter] Get Error',
+    RESET_CURRENCY_CONVERSION_RATE = '[CurrencyConverter] Reset',
+}
+
+export class ResetCurrencyConversionRate implements Action {
+    readonly type = ActionTypes.RESET_CURRENCY_CONVERSION_RATE;
+    constructor() { }
 }
 
 export class GetCurrencyConversionRate implements Action {
@@ -24,4 +30,4 @@ export class GetCurrencyConversionRateError implements Action {
 }
 
 
-export type Actions = GetCurrencyConversionRate | GetCurrencyConversionRateSuccess | GetCurrencyConversionRateError;
+export type Actions = ResetCurrencyConversionRate | GetCurrencyConversionRate | GetCurrencyConversionRateSuccess | GetCurrencyConversionRateError;

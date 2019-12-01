@@ -12,6 +12,9 @@ export const initialState: CurrencyConverterState = {
 // currencyConverterReducer function with action switch conditions to create a new copy of CurrencyConversionState
 export function currencyConverterReducer(state = initialState, action: Actions): CurrencyConverterState {
     switch (action.type) {
+        case ActionTypes.RESET_CURRENCY_CONVERSION_RATE: {
+            return initialState;
+        }
         case ActionTypes.GET_CURRENCY_CONVERSION_RATE: {
             return {
                 ...state,

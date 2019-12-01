@@ -47,6 +47,10 @@ export class CurrencyConverterComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset() {
+    this.currencyConverterFacade.resetComputedResult();
+  }
+
   compute() {
     const fromCurrencyCode = this.converterForm.controls['selectFrom'].value;
     const toCurrencyCode = this.converterForm.controls['selectTo'].value;
