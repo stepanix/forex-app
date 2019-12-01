@@ -28,16 +28,16 @@
     </div>
   </form>
 
-  <!-- <ng-container *ngIf="(conversionRate$ | async)?.exchangeRate; then result else loadingOrError"></ng-container> -->
+  <div *ngIf="(loading$ | async)" class="fx-view-container">
+    <app-loading-indicator> </app-loading-indicator>
+  </div>
 
-  <!-- <ng-template #result>
-    <div>
-      {{(conversionRate$ | async)?.exchangeRate}}
-    </div>
-  </ng-template> -->
+  <div *ngIf="(error$ | async).error" class="fx-view-container">
+    <app-error-screen (retryClicked)='compute()'> </app-error-screen>
+  </div>
 
-<!--ng-container directive is used here to conditionally render the screens -->
-
-
+  <div *ngIf="(conversionRate$ | async)?.exchangeRate && !(loading$ | async)" class="fx-view-container">
+    {{(conversionRate$ | async)?.exchangeRate}}
+  </div>
 
 </div>

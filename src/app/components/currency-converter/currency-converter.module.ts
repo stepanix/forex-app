@@ -10,6 +10,7 @@ import { CurrencyConverterEffects } from 'src/app/core/redux/effects/currency-co
 import { StoreModule } from '@ngrx/store';
 import { currencyConverterReducer } from 'src/app/core/redux/reducers/currency-converter/currency-converter.reducer';
 import { CurrencyConverterFacade } from './facades/currency-converter.facade';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CurrencyConverterFacade } from './facades/currency-converter.facade';
     BrowserModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
+    SharedModule,
     StoreModule.forFeature('currencyConverter', currencyConverterReducer),
     EffectsModule.forFeature([CurrencyConverterEffects])
   ],

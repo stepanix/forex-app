@@ -18,7 +18,8 @@ export class CurrencyConverterComponent implements OnInit {
   toCurrencyList: CurrencyModel[] = [];
 
   conversionRate$ = this.currencyConverterFacade.getConversionRate$();
-  conversionRateError$ = this.currencyConverterFacade.getConversionRateError$();
+  error$ = this.currencyConverterFacade.getConversionRateError$();
+  loading$ = this.currencyConverterFacade.isLoading$();
 
   currencyList: CurrencyModel[] = [
     { code: 'USD', name: 'US Dollar' },
@@ -33,6 +34,8 @@ export class CurrencyConverterComponent implements OnInit {
     decimal: '.'
   };
 
+  load = false;
+
   constructor(private fb: FormBuilder, private currencyConverterFacade: CurrencyConverterFacade) {
     this.converterForm = this.fb.group({
       txtAmount: [0.00, amountValidator],
@@ -41,7 +44,8 @@ export class CurrencyConverterComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   compute() {
     const fromCurrencyCode = this.converterForm.controls['selectFrom'].value;

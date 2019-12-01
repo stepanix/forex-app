@@ -16,17 +16,15 @@ const getConversionRate = createSelector(
     (state: CurrencyConverterState) => state.conversionRate
 );
 
-// Query function to extract error slice from repository
-const getError = createSelector(
-    getCurrencyConverterState,
-    (state: CurrencyConverterState) => state.error
-);
-
 // Query function to extract error from repository
-const getConversionRateError = createSelector(getError, (state: CurrencyConverterState) => state.error);
+const getConversionRateError = createSelector(getCurrencyConverterState, (state: CurrencyConverterState) => state.error);
+
+// Query function to extract isLoading from repository
+const getIsLoading = createSelector(getCurrencyConverterState, (state: CurrencyConverterState) => state.isLoading);
 
 // Wrap query function(s) in json object and export to be open for consumption
 export const conversionRateQuery = {
     getConversionRate,
-    getConversionRateError
+    getConversionRateError,
+    getIsLoading
 };

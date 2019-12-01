@@ -10,11 +10,10 @@ import { GetCurrencyConversionRate } from 'src/app/core/redux/actions/currency-c
 export class CurrencyConverterFacade {
 
     private _conversionRate$ = this.store.select(conversionRateQuery.getConversionRate);
-    private _conversionRateError$ = this.store.select(conversionRateQuery.getConversionRateError);
+    private _error$ = this.store.select(conversionRateQuery.getConversionRateError);
+    private _isLoading$ = this.store.select(conversionRateQuery.getIsLoading);
 
-    constructor(private store: Store<CurrencyConverterState>) {
-
-    }
+    constructor(private store: Store<CurrencyConverterState>) { }
 
     computeConversionRate(payload: ConversionRequestPayload) {
         this.store.dispatch(new GetCurrencyConversionRate(payload));
@@ -25,7 +24,11 @@ export class CurrencyConverterFacade {
     }
 
     getConversionRateError$() {
-        return this._conversionRateError$;
+        return this._error$;
+    }
+
+    isLoading$() {
+        return this._isLoading$;
     }
 
 }

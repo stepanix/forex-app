@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { ConversionRequestPayload } from 'src/app/components/currency-converter/models/conversion-request-payload';
+import { ExchangeRateModel } from 'src/app/components/currency-converter/models/exchange-rate.model';
 
 export enum ActionTypes {
     GET_CURRENCY_CONVERSION_RATE = '[CurrencyConverter] Get',
